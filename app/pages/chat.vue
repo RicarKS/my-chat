@@ -28,8 +28,8 @@ onUnmounted(() => {
 
 <style scoped>
 .chat-page {
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
 }

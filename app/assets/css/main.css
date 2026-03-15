@@ -8,15 +8,8 @@
 
 html, body, #__nuxt {
   height: 100%;
+  height: 100dvh;
   overflow: hidden;
-}
-
-/* Ensure flex chain passes through Nuxt internal wrappers between layout slot and page component */
-.app-main > * {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 body {

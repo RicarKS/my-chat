@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <NuxtLayout name="default">
-      <div class="settings-page">
-        <div class="settings-header">
-          <h1>设置</h1>
-          <button class="btn btn-ghost btn-sm" @click="router.push('/chat')">返回聊天</button>
-        </div>
-        <div class="settings-content">
-          <ModelConfigList />
-          <ImportExportPanel />
-        </div>
-      </div>
-    </NuxtLayout>
+  <div class="settings-page">
+    <div class="settings-header">
+      <h1>设置</h1>
+      <button class="btn btn-ghost btn-sm" @click="router.push('/chat')">返回聊天</button>
+    </div>
+    <div class="settings-content">
+      <ModelConfigList />
+      <ImportExportPanel />
+    </div>
   </div>
 </template>
 
@@ -22,9 +18,12 @@ const router = useRouter()
 
 <style scoped>
 .settings-page {
+  position: absolute;
+  inset: 0;
   max-width: 700px;
   margin: 0 auto;
   padding: 32px 20px;
+  overflow-y: auto;
 }
 
 .settings-header {

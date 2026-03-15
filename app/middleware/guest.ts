@@ -1,9 +1,9 @@
 export default defineNuxtRouteMiddleware(() => {
-  const authStore = useAuthStore()
+  // Only run on client - SSR has no access to localStorage tokens
+  if (import.meta.server) return
 
-  if (import.meta.client) {
-    authStore.loadFromStorage()
-  }
+  const authStore = useAuthStore()
+  authStore.loadFromStorage()
 
   if (authStore.token) {
     return navigateTo('/chat')

@@ -77,7 +77,7 @@ onMounted(() => {
 <style scoped>
 .chat-input-wrapper {
   flex-shrink: 0;
-  padding: 12px 20px 20px;
+  padding: 12px 20px calc(env(safe-area-inset-bottom, 0px) + 16px);
   background: var(--color-bg);
 }
 

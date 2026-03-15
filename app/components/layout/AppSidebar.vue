@@ -42,21 +42,12 @@ function handleLogout() {
 
 <style scoped>
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
   width: var(--sidebar-width);
+  height: 100%;
   background: var(--color-bg-secondary);
   border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal);
-  z-index: 100;
-}
-
-.sidebar.collapsed {
-  transform: translateX(-100%);
 }
 
 .sidebar-header {
@@ -65,6 +56,7 @@ function handleLogout() {
   justify-content: space-between;
   padding: 16px;
   border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .sidebar-title {
@@ -86,6 +78,7 @@ function handleLogout() {
 
 .sidebar-content {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 8px;
 }
@@ -95,17 +88,11 @@ function handleLogout() {
   border-top: 1px solid var(--color-border);
   display: flex;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .sidebar-btn {
   flex: 1;
   justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    max-width: 300px;
-  }
 }
 </style>

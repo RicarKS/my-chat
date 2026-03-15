@@ -1,15 +1,14 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-  const authStore = useAuthStore()
+  // Only run on client - SSR has no access to localStorage tokens
+  if (import.meta.server) return
 
-  if (import.meta.client) {
-    authStore.loadFromStorage()
-  }
+  const authStore = useAuthStore()
+  authStore.loadFromStorage()
 
   if (!authStore.token) {
     return navigateTo('/')
   }
 
-  // If we have a token but no user, verify it
   if (!authStore.user) {
     const { fetchMe } = useAuth()
     const valid = await fetchMe()
