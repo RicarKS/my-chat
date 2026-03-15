@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - chat-data:/app/data
+    environment:
+      - JWT_SECRET=${JWT_SECRET:-change-me-to-a-random-secret}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY:-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
+      - DATABASE_PATH=/app/data/chat.db
+    restart: unless-stopped
+
+volumes:
+  chat-data:
